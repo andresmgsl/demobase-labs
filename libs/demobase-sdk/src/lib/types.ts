@@ -107,3 +107,27 @@ export interface InstructionAccount {
 }
 
 export type AccountBoolAttributeKind = 0 | 1 | 2;
+
+export interface ProgramMetadata {
+  id: string | undefined;
+  name: string | undefined;
+  collections:
+    | {
+        name: string;
+        attributes: {
+          attributeType: string;
+          bump: number;
+          name: string;
+          size: number;
+        }[];
+        instructions: {
+          name: string;
+          arguments: {
+              attributeType: string;
+              bump: number;
+              name: string;
+          }[];
+      }[] | undefined;
+      }[]
+    | undefined;
+}
