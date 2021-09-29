@@ -1,0 +1,78 @@
+{
+    "id": "4fiGdGpGV148wm5JyksaQYc3YrpkTbGkbh772N42TUHQ",
+    "name": "Zooland",
+    "collections": [
+        {
+            "name": "animals",
+            "attributes": [
+                {
+                    "id": "2h3oNQaRw2Rmd2LDLWgcEiqE22c7oqQY77Bd6uXJMffL",
+                    "data": {
+                        "authority": "GPVJYn96kiAv9huNtmdijZnUaE61aLx7wjhRPRK3ukCp",
+                        "application": "4fiGdGpGV148wm5JyksaQYc3YrpkTbGkbh772N42TUHQ",
+                        "collection": "98NWB55QdaLgytDoGj6YPp51RH9syanSCESu1PtYYvSv",
+                        "name": "name",
+                        "kind": {
+                            "name": "u8",
+                            "size": 1
+                        },
+                        "modifier": {
+                            "name": "array",
+                            "size": 34
+                        },
+                        "bump": 255
+                    }
+                },
+                {
+                    "id": "8gZESfymzzZTGPrEWBFo4zJ589kN3n4UtGgmevM1u5Nh",
+                    "data": {
+                        "authority": "GPVJYn96kiAv9huNtmdijZnUaE61aLx7wjhRPRK3ukCp",
+                        "application": "4fiGdGpGV148wm5JyksaQYc3YrpkTbGkbh772N42TUHQ",
+                        "collection": "98NWB55QdaLgytDoGj6YPp51RH9syanSCESu1PtYYvSv",
+                        "name": "kind",
+                        "kind": {
+                            "name": "u8",
+                            "size": 1
+                        },
+                        "modifier": {
+                            "name": "none",
+                            "size": 1
+                        },
+                        "bump": 255
+                    }
+                }
+            ],
+            "instructions": []
+        },
+        {
+            "name": "staff",
+            "attributes": [
+                {
+                    "id": "BbiP1cAm5agtEQuspceYbKMCMEd32gJZRsxsqfycKhvZ",
+                    "data": {
+                        "authority": "GPVJYn96kiAv9huNtmdijZnUaE61aLx7wjhRPRK3ukCp",
+                        "application": "4fiGdGpGV148wm5JyksaQYc3YrpkTbGkbh772N42TUHQ",
+                        "collection": "FFAWbj45YJGFNc8YttJ4PJfnktevqV1Rz4fKxfq4TTao",
+                        "name": "name",
+                        "kind": {
+                            "name": "u8",
+                            "size": 1
+                        },
+                        "modifier": {
+                            "name": "none",
+                            "size": 1
+                        },
+                        "bump": 254
+                    }
+                }
+            ],
+            "instructions": [
+                {
+                    "name": "say Hello",
+                    "arguments": [],
+                    "accounts": []
+                }
+            ]
+        }
+    ]
+}

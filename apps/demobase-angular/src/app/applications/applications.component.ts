@@ -6,7 +6,8 @@ import {
 } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { WalletStore } from '@danmt/wallet-adapter-angular';
-import { Application, DemobaseService } from '@demobase-labs/demobase-sdk';
+import { Application, DemobaseService, ProgramMetadata } from '@demobase-labs/demobase-sdk';
+import { generateRustFile, IMetadata } from '@demobase-labs/codegenerator';
 import { BehaviorSubject } from 'rxjs';
 import { map } from 'rxjs/operators';
 
@@ -148,5 +149,12 @@ export class ApplicationsComponent implements OnInit {
     if (confirm('Are you sure? This action cannot be reverted.')) {
       this._demobaseService.deleteApplication(applicationId);
     }
+  }
+  
+  async generateFile(applicationId: string) {
+    const metadata: ProgramMetadata = await this._demobaseService.getApplicationMetadata(applicationId);
+    const programTemplate = generateRustFile(metadata as IMetadata); //TODO: refact later, unify interfaces
+
+    console.log(programTemplate);
   }
 }

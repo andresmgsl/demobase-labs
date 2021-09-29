@@ -679,112 +679,61 @@ export class DemobaseService {
     );
   }
 
-  async getGenerativeConfig(
-    applicationId: PublicKey
-  ): Promise<ProgramMetadata> {
-    const applicationInfo = await this.getApplication(applicationId);
-    const collections = await this.getCollectionsByApplication(applicationId);
+  async getApplicationMetadata(applicationId: string) {
+    if (!this.reader) {
+      throw Error('Program is not available');
+    }
 
-    const collectionsWithAttributes = await Promise.all(
-      collections.map((collection) =>
-        this.getCollectionAttributes(collection.pubkey).then((attributes) => ({
-          collection,
-          attributes,
-        }))
-      )
-    );
+    const filters = [{ memcmp: { bytes: applicationId, offset: 40 } }];
 
-    const collectionsWithInstructions = await Promise.all(
-      collections.map((collection) =>
-        this.getCollectionInstructions(collection.pubkey).then(
-          (instructions) => {
-            return { collection, instructions };
-          }
-        )
-      )
-    );
+    const [
+      application,
+      collections,
+      collectionAttributes,
+      instructions,
+      instructionArguments,
+      instructionAccounts,
+    ] = await Promise.all([
+      this.getApplication(applicationId),
+      this.getCollectionsByApplication(applicationId),
+      this.reader.account.collectionAttribute
+        .all(filters)
+        .then((accounts) =>
+          accounts.map(({ account, publicKey }) =>
+            CollectionAttributeParser(publicKey, account)
+          )
+        ),
+      this.reader.account.collectionInstruction
+        .all(filters)
+        .then((accounts) =>
+          accounts.map(({ account, publicKey }) =>
+            CollectionInstructionParser(publicKey, account)
+          )
+        ),
+      this.reader.account.instructionArgument
+        .all(filters)
+        .then((accounts) =>
+          accounts.map(({ account, publicKey }) =>
+            InstructionArgumentParser(publicKey, account)
+          )
+        ),
+      this.reader.account.instructionAccount
+        .all(filters)
+        .then((accounts) =>
+          accounts.map(({ account, publicKey }) =>
+            InstructionAccountParser(publicKey, account)
+          )
+        ),
+    ]);
 
-    const collectionsWithAttributesAndInstructions =
-      collectionsWithAttributes.map((dataAttr) => {
-        const singleCollection = collectionsWithInstructions.find(
-          (dataInst) =>
-            dataInst.collection.info.name === dataAttr.collection.info.name
-        );
-
-        return {
-          collection: dataAttr.collection,
-          attributes: dataAttr.attributes,
-          instructions: singleCollection?.instructions,
-        };
-      });
-
-    //move
     const metadata: ProgramMetadata = {
-      id: applicationInfo?.pubkey.toString(),
-      name: applicationInfo?.info.name,
-      collections: undefined,
-    };
-
-    const formatedCollections = await Promise.all(
-      collectionsWithAttributesAndInstructions.map(async (dataFull) => {
-        const name = dataFull.collection.info.name;
-
-        const attributes = dataFull.attributes.map((attribute) => {
-          const formatedAttributes = {
-            attributeType: attribute.info.attributeType,
-            bump: attribute.info.bump,
-            name: attribute.info.name,
-            size: attribute.info.size,
-          };
-
-          return formatedAttributes;
-        });
-
-        if (dataFull.instructions) {
-          const instructions = await Promise.all(
-            dataFull.instructions.map(async (instruction) => {
-              const instructionsArguments =
-                await this.getCollectionInstructionArguments(
-                  instruction.pubkey
-                );
-              const instructionArguments = instructionsArguments.map(
-                (argument) => {
-                  const formatedInstructionArguments = {
-                    attributeType: argument.info.argumentType,
-                    bump: argument.info.bump,
-                    name: argument.info.name,
-                  };
-                  return formatedInstructionArguments;
-                }
-              );
-
-              const formatedInstruction = {
-                name: instruction.info.name,
-                arguments: instructionArguments,
-              };
-
-              return formatedInstruction;
-            })
-          );
-
-          return { name, attributes, instructions };
-        }
-
-        return { name, attributes, instructions: undefined };
-      })
-    );
-
-    metadata['collections'] = formatedCollections;
-
-    await fetch('http://localhost:3333/api/generateProgramFile', {
-      method: 'POST',
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(metadata),
-      mode: 'no-cors',
-    });
+      application,
+      collections,
+      collectionAttributes,
+      instructions,
+      instructionArguments,
+      instructionAccounts
+    }
 
     return metadata;
   }

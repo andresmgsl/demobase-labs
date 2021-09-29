@@ -27,6 +27,9 @@
     ]
   },
   "projects": {
+    "codegenerator": {
+      "tags": []
+    },
     "demobase": {},
     "demobase-angular": {
       "tags": []

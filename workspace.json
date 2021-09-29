@@ -1,6 +1,28 @@
 {
   "version": 2,
   "projects": {
+    "codegenerator": {
+      "root": "libs/codegenerator",
+      "sourceRoot": "libs/codegenerator/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["libs/codegenerator/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/codegenerator"],
+          "options": {
+            "jestConfig": "libs/codegenerator/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "demobase": {
       "root": "apps/demobase",
       "projectType": "application",

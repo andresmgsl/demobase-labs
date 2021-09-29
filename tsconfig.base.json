@@ -15,6 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@demobase-labs/codegenerator": ["libs/codegenerator/src/index.ts"],
       "@demobase-labs/demobase-sdk": ["libs/demobase-sdk/src/index.ts"]
     }
   },
