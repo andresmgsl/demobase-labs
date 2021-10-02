@@ -234,8 +234,4 @@ export class ApplicationComponent implements OnInit {
       this._demobaseService.deleteApplication(applicationId);
     }
   }
-
-  getProgramConfig(applicationId: PublicKey) {
-    this._demobaseService.getGenerativeConfig(applicationId);
-  }
 }

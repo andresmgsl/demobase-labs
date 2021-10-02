@@ -8,7 +8,7 @@ pub mod {{program.name.pascalCase}} {
 
     {{#each program.collections}}
     {{#each this.instructions}}
-    pub fn {{this.name.snakeCase}}(ctx: Context<{{this.name.pascalCase}}>{{#each this.arguments}}, {{this.name.pascalCase}}: {{this.attributeType}}{{/each}}) -> ProgramResult {
+    pub fn {{this.name.snakeCase}}(ctx: Context<{{this.name.pascalCase}}>{{#each this.arguments}}, {{this.data.name.pascalCase}}: {{this.data.kind.name}}{{/each}}) -> ProgramResult {
         // To implement
     }
     {{/each}}
@@ -30,13 +30,13 @@ pub struct {{this.name.pascalCase}} {
     pub application: Pubkey,
 
     {{#each this.attributes}}
-    pub {{this.name.snakeCase}}: {{this.attributeType}},
+    pub {{this.data.name.snakeCase}}: {{this.data.kind.name}},
     {{/each}}
 }
 {{#each this.instructions}}
 
 #[derive(Accounts)]
-#[instruction({{#each this.arguments}}{{#if @first}}{{else}}, {{/if}}{{this.name.snakeCase}}:{{this.attributeType}}{{/each}})]
+#[instruction({{#each this.arguments}}{{#if @first}}{{else}}, {{/if}}{{this.data.name.pascalCase}}: {{this.data.kind.name}}{{/each}})]
 pub struct {{this.name.pascalCase}}<'info>{
     #[account(
         init

@@ -1,13 +1,8 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  HostBinding,
-  OnInit,
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, HostBinding, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { WalletStore } from '@danmt/wallet-adapter-angular';
-import { Application, DemobaseService, ProgramMetadata } from '@demobase-labs/demobase-sdk';
-import { generateRustFile, IMetadata } from '@demobase-labs/codegenerator';
+import { generateFullProgram, currentCodeMetadata } from '@demobase-labs/codegenerator';
+import { Application, DemobaseService } from '@demobase-labs/demobase-sdk';
 import { BehaviorSubject } from 'rxjs';
 import { map } from 'rxjs/operators';
 
@@ -53,6 +48,17 @@ import { EditApplicationComponent } from '../shared/components/edit-application.
               </p>
               <button
                 mat-mini-fab
+                color="accent"
+                [disabled]="(connected$ | ngrxPush) === false"
+                [attr.aria-label]="
+                  'Generate ' + application.data.name + ' application'
+                "
+                (click)="generateFile(application.id)"
+                >
+                <mat-icon>file_download</mat-icon>
+              </button>
+              <button
+                mat-mini-fab
                 color="primary"
                 [attr.aria-label]="
                   'Edit ' + application.data.name + ' application'
@@ -80,6 +86,9 @@ import { EditApplicationComponent } from '../shared/components/edit-application.
         <ng-template #emptyList>
           <p class="text-center text-xl">There's no applications yet.</p>
         </ng-template>
+
+        <ngx-monaco-editor class="custom-monaco-editor" [options]="editorOptions" [ngModel]="codeTemplate$ | async"></ngx-monaco-editor>
+
       </section>
 
       <button
@@ -116,6 +125,9 @@ export class ApplicationsComponent implements OnInit {
       }
     })
   );
+  readonly codeTemplate$ = currentCodeMetadata;
+
+  editorOptions = {theme: 'vs-dark', language: 'rust', automaticLayout: true};
 
   constructor(
     private readonly _walletStore: WalletStore,
@@ -150,11 +162,9 @@ export class ApplicationsComponent implements OnInit {
       this._demobaseService.deleteApplication(applicationId);
     }
   }
-  
-  async generateFile(applicationId: string) {
-    const metadata: ProgramMetadata = await this._demobaseService.getApplicationMetadata(applicationId);
-    const programTemplate = generateRustFile(metadata as IMetadata); //TODO: refact later, unify interfaces
 
-    console.log(programTemplate);
+  async generateFile(applicationId: string) {
+    const metadata = await this._demobaseService.getApplicationMetadata(applicationId);
+    generateFullProgram(metadata); //TODO: refact later, unify interfaces
   }
 }

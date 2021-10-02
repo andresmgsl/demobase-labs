@@ -7,6 +7,7 @@ import {
   Collection,
   CollectionAttribute,
   CollectionInstruction,
+  IMetadata,
   InstructionAccount,
   InstructionArgument,
   Wallet,
@@ -679,11 +680,11 @@ export class DemobaseService {
     );
   }
 
-  async getApplicationMetadata(applicationId: string) {
+  async getApplicationMetadata(applicationId: string): Promise<IMetadata> {
     if (!this.reader) {
       throw Error('Program is not available');
     }
-
+    console.log("aaaaa");
     const filters = [{ memcmp: { bytes: applicationId, offset: 40 } }];
 
     const [
@@ -725,8 +726,7 @@ export class DemobaseService {
           )
         ),
     ]);
-
-    const metadata: ProgramMetadata = {
+    const metadata = {
       application,
       collections,
       collectionAttributes,

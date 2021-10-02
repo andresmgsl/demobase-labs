@@ -136,7 +136,7 @@ export interface CollectionInstruction {
 }
 
 export interface IMetadata {
-  application: Application;
+  application: Application | null;
   collections: Collection[];
   collectionAttributes: CollectionAttribute[];
   instructions: CollectionInstruction[];
@@ -166,5 +166,5 @@ export interface IFormatedName {
 // pruebaaaa
 export interface IGenerateFileResponse {
   status: boolean;
-  data?: any;
+  data?: string;
 }

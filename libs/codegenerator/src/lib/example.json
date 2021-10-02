@@ -1,78 +1,183 @@
 {
-    "id": "4fiGdGpGV148wm5JyksaQYc3YrpkTbGkbh772N42TUHQ",
-    "name": "Zooland",
-    "collections": [
+  "id": "7BSeK6QVSdhr45aYGYMxsvaJtQLCFVrDdHR7zYQc7YKG",
+  "name": {
+    "snakeCase": "new_app",
+    "normalCase": "new app",
+    "camelCase": "newApp",
+    "pascalCase": "NewApp"
+  },
+  "collections": [
+    {
+      "name": {
+        "snakeCase": "tercera_coleccion",
+        "normalCase": "tercera coleccion",
+        "camelCase": "terceraColeccion",
+        "pascalCase": "TerceraColeccion"
+      },
+      "attributes": [],
+      "instructions": []
+    },
+    {
+      "name": {
+        "snakeCase": "primera_coleccion",
+        "normalCase": "primera coleccion",
+        "camelCase": "primeraColeccion",
+        "pascalCase": "PrimeraColeccion"
+      },
+      "attributes": [
         {
-            "name": "animals",
-            "attributes": [
-                {
-                    "id": "2h3oNQaRw2Rmd2LDLWgcEiqE22c7oqQY77Bd6uXJMffL",
-                    "data": {
-                        "authority": "GPVJYn96kiAv9huNtmdijZnUaE61aLx7wjhRPRK3ukCp",
-                        "application": "4fiGdGpGV148wm5JyksaQYc3YrpkTbGkbh772N42TUHQ",
-                        "collection": "98NWB55QdaLgytDoGj6YPp51RH9syanSCESu1PtYYvSv",
-                        "name": "name",
-                        "kind": {
-                            "name": "u8",
-                            "size": 1
-                        },
-                        "modifier": {
-                            "name": "array",
-                            "size": 34
-                        },
-                        "bump": 255
-                    }
-                },
-                {
-                    "id": "8gZESfymzzZTGPrEWBFo4zJ589kN3n4UtGgmevM1u5Nh",
-                    "data": {
-                        "authority": "GPVJYn96kiAv9huNtmdijZnUaE61aLx7wjhRPRK3ukCp",
-                        "application": "4fiGdGpGV148wm5JyksaQYc3YrpkTbGkbh772N42TUHQ",
-                        "collection": "98NWB55QdaLgytDoGj6YPp51RH9syanSCESu1PtYYvSv",
-                        "name": "kind",
-                        "kind": {
-                            "name": "u8",
-                            "size": 1
-                        },
-                        "modifier": {
-                            "name": "none",
-                            "size": 1
-                        },
-                        "bump": 255
-                    }
-                }
-            ],
-            "instructions": []
+          "id": "EZHq84WdNJJ87HVAm6P4TgycP4ixbRVFqm1cSovffMqF",
+          "data": {
+            "authority": "4Y5KbUm1UdHQjRrJYbYhTmwaYAK5tJFeiXcLndTghetq",
+            "application": "7BSeK6QVSdhr45aYGYMxsvaJtQLCFVrDdHR7zYQc7YKG",
+            "collection": "7vvA9KmtrBjCtm58UKRgAjrBzLmsgCHLXTv6zMFPiTwS",
+            "name": {
+              "snakeCase": "nombre",
+              "normalCase": "nombre",
+              "camelCase": "nombre",
+              "pascalCase": "Nombre"
+            },
+            "kind": { "id": 3, "name": "u64", "size": 8 },
+            "modifier": { "id": 1, "name": "array", "size": 34 }
+          }
         },
         {
-            "name": "staff",
-            "attributes": [
-                {
-                    "id": "BbiP1cAm5agtEQuspceYbKMCMEd32gJZRsxsqfycKhvZ",
-                    "data": {
-                        "authority": "GPVJYn96kiAv9huNtmdijZnUaE61aLx7wjhRPRK3ukCp",
-                        "application": "4fiGdGpGV148wm5JyksaQYc3YrpkTbGkbh772N42TUHQ",
-                        "collection": "FFAWbj45YJGFNc8YttJ4PJfnktevqV1Rz4fKxfq4TTao",
-                        "name": "name",
-                        "kind": {
-                            "name": "u8",
-                            "size": 1
-                        },
-                        "modifier": {
-                            "name": "none",
-                            "size": 1
-                        },
-                        "bump": 254
-                    }
-                }
-            ],
-            "instructions": [
-                {
-                    "name": "say Hello",
-                    "arguments": [],
-                    "accounts": []
-                }
-            ]
+          "id": "EaQk78qTnEeR5dW9L9XT85ZjDQdkyLmcEc5rTfQbMWJD",
+          "data": {
+            "authority": "4Y5KbUm1UdHQjRrJYbYhTmwaYAK5tJFeiXcLndTghetq",
+            "application": "7BSeK6QVSdhr45aYGYMxsvaJtQLCFVrDdHR7zYQc7YKG",
+            "collection": "7vvA9KmtrBjCtm58UKRgAjrBzLmsgCHLXTv6zMFPiTwS",
+            "name": {
+              "snakeCase": "last_name",
+              "normalCase": "last name",
+              "camelCase": "lastName",
+              "pascalCase": "LastName"
+            },
+            "kind": { "id": 0, "name": "u8", "size": 1 },
+            "modifier": { "id": 2, "name": "vector", "size": 1 }
+          }
+        },
+        {
+          "id": "GrUjfNjMKkkuKi38yw9qhSCcGVNbNYzgVWSHL2MWr8NC",
+          "data": {
+            "authority": "4Y5KbUm1UdHQjRrJYbYhTmwaYAK5tJFeiXcLndTghetq",
+            "application": "7BSeK6QVSdhr45aYGYMxsvaJtQLCFVrDdHR7zYQc7YKG",
+            "collection": "7vvA9KmtrBjCtm58UKRgAjrBzLmsgCHLXTv6zMFPiTwS",
+            "name": {
+              "snakeCase": "sex",
+              "normalCase": "sex",
+              "camelCase": "sex",
+              "pascalCase": "Sex"
+            },
+            "kind": { "id": 1, "name": "u16", "size": 2 },
+            "modifier": { "id": 0, "name": "none", "size": 1 }
+          }
         }
-    ]
+      ],
+      "instructions": [
+        {
+          "name": {
+            "snakeCase": "edit_name",
+            "normalCase": "edit name",
+            "camelCase": "editName",
+            "pascalCase": "EditName"
+          },
+          "arguments": [
+            {
+              "id": "2x7iYaFSnANpz2REFq1xkBMRQYHcpzECXfGHNAQ9tcst",
+              "data": {
+                "authority": "4Y5KbUm1UdHQjRrJYbYhTmwaYAK5tJFeiXcLndTghetq",
+                "application": "7BSeK6QVSdhr45aYGYMxsvaJtQLCFVrDdHR7zYQc7YKG",
+                "collection": "7vvA9KmtrBjCtm58UKRgAjrBzLmsgCHLXTv6zMFPiTwS",
+                "instruction": "2YxC1VcM8kBP53Lcg3FsB7GMbjyZVb827CrR9aFY5yUb",
+                "name": {
+                  "snakeCase": "options",
+                  "normalCase": "options",
+                  "camelCase": "options",
+                  "pascalCase": "Options"
+                },
+                "kind": { "id": 0, "name": "u8", "size": 1 },
+                "modifier": { "id": 0, "name": "none", "size": 1 }
+              }
+            },
+            {
+              "id": "ErZKNydcbLTrKuc6HNGHVkRMbxuGJ4SXozh5aTbtukSL",
+              "data": {
+                "authority": "4Y5KbUm1UdHQjRrJYbYhTmwaYAK5tJFeiXcLndTghetq",
+                "application": "7BSeK6QVSdhr45aYGYMxsvaJtQLCFVrDdHR7zYQc7YKG",
+                "collection": "7vvA9KmtrBjCtm58UKRgAjrBzLmsgCHLXTv6zMFPiTwS",
+                "instruction": "2YxC1VcM8kBP53Lcg3FsB7GMbjyZVb827CrR9aFY5yUb",
+                "name": {
+                  "snakeCase": "name",
+                  "normalCase": "name",
+                  "camelCase": "name",
+                  "pascalCase": "Name"
+                },
+                "kind": { "id": 0, "name": "u8", "size": 1 },
+                "modifier": { "id": 1, "name": "array", "size": 32 }
+              }
+            }
+          ],
+          "accounts": [
+            {
+              "id": "2p6EhatAkvSaYCnBvfcwaKxLdWzo72ieHk1621Jtb4JY",
+              "data": {
+                "authority": "4Y5KbUm1UdHQjRrJYbYhTmwaYAK5tJFeiXcLndTghetq",
+                "application": "7BSeK6QVSdhr45aYGYMxsvaJtQLCFVrDdHR7zYQc7YKG",
+                "collection": "7vvA9KmtrBjCtm58UKRgAjrBzLmsgCHLXTv6zMFPiTwS",
+                "instruction": "2YxC1VcM8kBP53Lcg3FsB7GMbjyZVb827CrR9aFY5yUb",
+                "accountCollection": "7vvA9KmtrBjCtm58UKRgAjrBzLmsgCHLXTv6zMFPiTwS",
+                "name": {
+                  "snakeCase": "authority",
+                  "normalCase": "authority",
+                  "camelCase": "authority",
+                  "pascalCase": "Authority"
+                },
+                "kind": { "id": 1, "name": "signer" },
+                "markAttribute": { "id": 2, "name": "mut" }
+              }
+            },
+            {
+              "id": "EzD8PZ9uU1R6EnuVV1BKJ7uVyXwGgQJF7gVKvcEtridy",
+              "data": {
+                "authority": "4Y5KbUm1UdHQjRrJYbYhTmwaYAK5tJFeiXcLndTghetq",
+                "application": "7BSeK6QVSdhr45aYGYMxsvaJtQLCFVrDdHR7zYQc7YKG",
+                "collection": "7vvA9KmtrBjCtm58UKRgAjrBzLmsgCHLXTv6zMFPiTwS",
+                "instruction": "2YxC1VcM8kBP53Lcg3FsB7GMbjyZVb827CrR9aFY5yUb",
+                "accountCollection": "7vvA9KmtrBjCtm58UKRgAjrBzLmsgCHLXTv6zMFPiTwS",
+                "name": {
+                  "snakeCase": "application",
+                  "normalCase": "application",
+                  "camelCase": "application",
+                  "pascalCase": "Application"
+                },
+                "kind": { "id": 0, "name": "account" },
+                "markAttribute": { "id": 1, "name": "init" }
+              }
+            }
+          ]
+        },
+        {
+          "name": {
+            "snakeCase": "edit_sex",
+            "normalCase": "edit sex",
+            "camelCase": "editSex",
+            "pascalCase": "EditSex"
+          },
+          "arguments": [],
+          "accounts": []
+        }
+      ]
+    },
+    {
+      "name": {
+        "snakeCase": "segunda_coleccio_n",
+        "normalCase": "segunda coleccioN",
+        "camelCase": "segundaColeccioN",
+        "pascalCase": "SegundaColeccioN"
+      },
+      "attributes": [],
+      "instructions": []
+    }
+  ]
 }

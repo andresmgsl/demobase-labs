@@ -131,3 +131,11 @@ export interface ProgramMetadata {
       }[]
     | undefined;
 }
+export interface IMetadata {
+  application: Application | null;
+  collections: Collection[];
+  collectionAttributes: CollectionAttribute[];
+  instructions: CollectionInstruction[];
+  instructionArguments: InstructionArgument[];
+  instructionAccounts: InstructionAccount[];
+}

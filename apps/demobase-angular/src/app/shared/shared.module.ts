@@ -8,6 +8,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { ReactiveComponentModule } from '@ngrx/component';
+import { MonacoEditorModule } from 'ngx-monaco-editor';
 import { EditAccountComponent } from './components/edit-account.component';
 import { EditApplicationComponent } from './components/edit-application.component';
 import { EditArgumentComponent } from './components/edit-argument.component';
@@ -28,7 +29,8 @@ import { SanitizeUrlPipe } from './pipes/sanitize-url.pipe';
     MatIconModule,
     MatInputModule,
     MatSelectModule,
-    ReactiveComponentModule
+    ReactiveComponentModule,
+    MonacoEditorModule.forRoot(),
   ],
   exports: [
     ObscureAddressPipe,
@@ -39,7 +41,8 @@ import { SanitizeUrlPipe } from './pipes/sanitize-url.pipe';
     EditArgumentComponent,
     EditAttributeComponent,
     EditApplicationComponent,
-    EditCollectionComponent
+    EditCollectionComponent,
+    MonacoEditorModule
   ],
   declarations: [
     ObscureAddressPipe,

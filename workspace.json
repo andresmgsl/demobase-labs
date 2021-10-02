@@ -68,7 +68,8 @@
             "inlineStyleLanguage": "scss",
             "assets": [
               "apps/demobase-angular/src/favicon.ico",
-              "apps/demobase-angular/src/assets"
+              "apps/demobase-angular/src/assets",
+              { "glob": "**/*", "input": "node_modules/monaco-editor", "output": "assets/monaco-editor" }
             ],
             "styles": ["apps/demobase-angular/src/styles.scss"],
             "scripts": [],
